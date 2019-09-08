@@ -51,21 +51,30 @@
                             <li class="nav-item">
                                 <a class="nav-link text-light" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
-                            @if (Route::has('register'))
+                         {{--    @if (Route::has('register'))
                                 <li class="nav-item ">
                                     <a class="nav-link text-light"  href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
-                            @endif
+                            @endif --}}
                         @else
                             <li class="nav-item dropdownn text-light">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="position:relative; padding-left:50px;">
                                         <img src=" /uploads/avatars/{{ Auth::user()->avatar }}" alt="avatar" class="img">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+
+                                    {{ Auth::user()->name }} @if ( Auth::user()->role->role =='Admin')
+                                   (Admin)
+                                    @endif
+                                    <span class="caret"></span>
+
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                       <a class="dropdown-item"  href="/profile">Profile</a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                      @if ( Auth::user()->role->role =='Admin')
+                                      <a class="dropdown-item"  href="/dashboard">Dashboard</a>
+                                       @endif
+
+                                      <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}

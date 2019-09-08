@@ -1,11 +1,9 @@
-@extends('layouts.app')
 
-@section('content')
-<div class="container">
+<div>
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+        <div class="col">
+            <div class="card text-light mx-auto" style="background-color:#082052!important">
+                <div class="card-header"  style="background-color:#FF5733!important">{{ __('Register') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}" >
@@ -60,20 +58,7 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-                      {{--   <div class="form-group row">
-                            <label for="profile" class="col-md-4 col-form-label text-md-right">Profile Image</label>
-                            <div class="col-md-6">
-                                <input type="file" name="profile" @error('profile') is-invalid @enderror>
-                                @error('profile')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                            </div>
 
-
-                        </div>
- --}}
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -87,4 +72,4 @@
         </div>
     </div>
 </div>
-@endsection
+

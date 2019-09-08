@@ -19,3 +19,5 @@ Route::get('/', 'HomeController@index');
 
 Route::resource('profile', 'ProfileController');
 Route::resource('user', 'UserController');
+Route::resource('roles', 'RolesController');
+Route::resource('dashboard', 'DashboardController');

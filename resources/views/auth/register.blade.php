@@ -50,6 +50,17 @@
                                 @enderror
                             </div>
                         </div>
+                        {{-- <div class="form-group row">
+                            <label for="roles" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
+
+                            <div class="col-md-6">
+                              <select name="role_id" id="role_id" class="form-control">
+                                  @foreach ($roles as $item)
+                                  <option value="{{$item->id}}">{{$item->role}}</option>
+                                  @endforeach
+                              </select>
+                            </div>
+                        </div> --}}
 
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>

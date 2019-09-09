@@ -21,3 +21,6 @@ Route::resource('profile', 'ProfileController');
 Route::resource('user', 'UserController');
 Route::resource('roles', 'RolesController');
 Route::resource('dashboard', 'DashboardController');
+Route::resource('building', 'BuildingController');
+Route::resource('romm', 'RoomsController');
+Route::resource('keys', '_KeysController');

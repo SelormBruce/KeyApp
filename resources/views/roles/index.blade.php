@@ -2,7 +2,7 @@
         <div class="col-md-8">
             <div class="card">
 
-                    <div class="card-header text-light"style="background-color:#082052!important">Availabel Roles
+                    <div class="card-header text-light"style="background-color:#FF5733!important">Availabel Roles
 
                     </div>
                     <div style="background-color:#082052!important">
@@ -32,7 +32,7 @@
                     </div >
 
                           <a  class="ml-auto  text-light"   style="background-color:#082052!important" href="/roles/create">
-                            
+
                             Add  Role</a>
                      </div>
 

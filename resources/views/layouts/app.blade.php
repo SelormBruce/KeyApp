@@ -73,6 +73,9 @@
                                       @if ( Auth::user()->role->role =='Admin')
                                       <a class="dropdown-item"  href="/dashboard">Dashboard</a>
                                        @endif
+                                       @if ( Auth::user()->role->role =='Estate_Admin')
+                                       <a class="dropdown-item"  href="/dashboard">Dashboard</a>
+                                        @endif
 
                                       <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Role;
 use App\Building;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class BuildingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +14,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $role = Role::All();
         $building = Building::All();
-       /*  dd($role); */
-    return view('dashboard.index',compact('role','building'));    //
+        return view('building.index',compact('building'));
     }
 
     /**
@@ -28,7 +25,8 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        //
+        $building = new Building();
+        return view('building.create',compact('building'));
     }
 
     /**
@@ -39,51 +37,60 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Building::create($this->validateBuildingData());
+        return redirect('dashboard');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Building  $building
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Building $building)
     {
-        //
+       return view('building.show',compact('building'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Building  $building
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Building $building)
     {
-        //
+       return view('building.edit',compact('building'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Building  $building
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Building $building)
     {
-        //
+        $building->update($this->validateBuildingData());
+        return redirect('dashboard');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Building  $building
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Building $building)
     {
-        //
+        $building->delete();
+        return redirect('dashboard');
+    }
+    public function validateBuildingData(){
+        return request()->validate([
+            'name'=>'required|string',
+            'description'=>''
+        ]);
     }
 }
